@@ -1,0 +1,28 @@
+# To start: docker-compose up --build
+# To stop: docker-compose down
+
+version: '3.8'
+services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: backend.dockerfile
+    expose:
+      - "8000"
+
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: frontend.dockerfile
+    depends_on:
+      - backend
+
+  nginx:
+    build: 
+      context: .
+      dockerfile: nginx.dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
