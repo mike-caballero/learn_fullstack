@@ -1,8 +1,9 @@
-# Learning Fullstack Repo
+# Learning Fullstack
 
 Mini-project to learn fullstack web app development using:
 
 - Python (backend): Flask as the web server with Gunicorn as the WSGI server.
-- Typescript (frontend): React for UI.
-- Docker for containerization.
-- Nginx for reverse proxy.
+- Typescript + React (frontend): developing static content for UI.
+- Nginx for reverse proxy and serving static content.
+- Docker for containerization and orchestration of backend, frontend, and web server.
+- EC2 for hosting the web app.
