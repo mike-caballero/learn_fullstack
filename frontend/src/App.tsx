@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 function App() {
+  const [helloWorld, setHelloWorld] = useState('');
+
+  useEffect(() => {
+    axios.get('/api')
+      .then(response => {
+        console.log(response);  // Add this line to log the response
+        setHelloWorld(response.data);
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <p>{helloWorld}</p>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
